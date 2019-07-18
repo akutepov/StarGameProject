@@ -1,0 +1,75 @@
+
+mainAtlas.png
+format: RGBA8888
+filter: MipMapLinearNearest,Linear
+repeat: none
+explosion
+  rotate: false
+  xy: 8, 84
+  size: 900, 900
+  orig: 900, 900
+  offset: 0, 0
+  index: 0
+enemy2
+  rotate: false
+  xy: 916, 646
+  size: 784, 338
+  orig: 784, 338
+  offset: 0, 0
+  index: -1
+enemy0
+  rotate: false
+  xy: 1708, 675
+  size: 332, 309
+  orig: 332, 309
+  offset: 0, 0
+  index: -1
+enemy1
+  rotate: false
+  xy: 916, 390
+  size: 440, 248
+  orig: 440, 248
+  offset: 0, 0
+  index: -1
+main_ship
+  rotate: false
+  xy: 916, 95
+  size: 390, 287
+  orig: 390, 287
+  offset: 0, 0
+  index: -1
+message_game_over
+  rotate: false
+  xy: 8, 8
+  size: 493, 68
+  orig: 493, 68
+  offset: 0, 0
+  index: -1
+button_new_game
+  rotate: false
+  xy: 509, 20
+  size: 365, 56
+  orig: 365, 56
+  offset: 0, 0
+  index: -1
+bulletEnemy
+  rotate: false
+  xy: 1708, 651
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+bulletMainShip
+  rotate: false
+  xy: 1364, 622
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 1314, 372
+  size: 11, 10
+  orig: 11, 10
+  offset: 0, 0
+  index: -1

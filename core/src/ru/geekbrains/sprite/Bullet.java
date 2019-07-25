@@ -42,4 +42,12 @@ public class Bullet extends Sprite {
             destroy();
         }
     }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public Object getOwner() {
+        return owner;
+    }
 }

@@ -40,21 +40,11 @@ public abstract class Ship extends Sprite {
     }
 
     @Override
-    public void update(float delta) {
-        pos.mulAdd(v, delta);
-        reloadTimer += delta;
-        if (reloadTimer >= reloadInterval) {
-            reloadTimer = 0f;
-            shoot();
-        }
-    }
-
-    @Override
     public void dispose() {
         shootSound.dispose();
     }
 
-    private void shoot() {
+    public void shoot() {
         Bullet bullet = bulletPool.obtain();
         bullet.set(this, bulletRegion, pos, bulletV, bulletHeight, worldBounds, damage);
         shootSound.play();

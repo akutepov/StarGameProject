@@ -12,9 +12,11 @@ import com.badlogic.gdx.math.Vector2;
 import ru.geekbrains.base.BaseScreen;
 import ru.geekbrains.math.Rect;
 import ru.geekbrains.pool.BulletPool;
+import ru.geekbrains.pool.EnemyPool;
 import ru.geekbrains.sprite.Background;
 import ru.geekbrains.sprite.MainShip;
 import ru.geekbrains.sprite.Star;
+import ru.geekbrains.utils.EnemyGenerator;
 
 public class GameScreen extends BaseScreen {
 
@@ -25,6 +27,8 @@ public class GameScreen extends BaseScreen {
     private Background background;
 
     private BulletPool bulletPool;
+    private EnemyPool enemyPool;
+    private EnemyGenerator enemyGenerator;
 
     private Star[] starArray;
     private MainShip mainShip;
@@ -42,6 +46,8 @@ public class GameScreen extends BaseScreen {
             starArray[i] = new Star(atlas);
         }
         bulletPool = new BulletPool();
+        enemyPool = new EnemyPool(bulletPool, worldBounds);
+        enemyGenerator = new EnemyGenerator(enemyPool, atlas, worldBounds);
         mainShip = new MainShip(atlas, bulletPool);
         music.setLooping(true);
         music.play();
@@ -70,6 +76,7 @@ public class GameScreen extends BaseScreen {
         atlas.dispose();
         bg.dispose();
         bulletPool.dispose();
+        enemyPool.dispose();
         music.dispose();
         mainShip.dispose();
         super.dispose();
@@ -104,11 +111,14 @@ public class GameScreen extends BaseScreen {
             star.update(delta);
         }
         bulletPool.updateActiveSprites(delta);
+        enemyPool.updateActiveSprites(delta);
         mainShip.update(delta);
+        enemyGenerator.generate(delta);
     }
 
     private void freeAllDestroyedActiveSprites() {
         bulletPool.freeAllDestroyedActiveSprites();
+        enemyPool.freeAllDestroyedActiveSprites();
     }
 
     private void draw() {
@@ -121,6 +131,7 @@ public class GameScreen extends BaseScreen {
         }
         mainShip.draw(batch);
         bulletPool.drawActiveSprites(batch);
+        enemyPool.drawActiveSprites(batch);
         batch.end();
     }
 

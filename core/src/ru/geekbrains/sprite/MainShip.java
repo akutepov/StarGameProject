@@ -13,6 +13,7 @@ import ru.geekbrains.pool.ExplosionPool;
 public class MainShip extends Ship {
 
     private static final int INVALID_POINTER = -1;
+    private static final int HP = 100;
 
     private boolean pressedLeft = false;
     private boolean pressedRight = false;
@@ -32,7 +33,18 @@ public class MainShip extends Ship {
         bulletV = new Vector2(0f, 0.5f);
         bulletHeight = 0.01f;
         damage = 1;
-        hp = 10;
+        hp = HP;
+    }
+
+    public void startNewGame() {
+        stop();
+        pressedLeft = false;
+        pressedRight = false;
+        leftPointer = INVALID_POINTER;
+        rightPointer = INVALID_POINTER;
+        hp = HP;
+        pos.x = worldBounds.pos.x;
+        flushDestroy();
     }
 
     @Override
